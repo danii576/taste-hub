@@ -1,0 +1,113 @@
+{
+  "TOPBAR": {
+    "MODE": "Mode",
+    "HOME": "Home",
+    "MENU": "Menu",
+    "ABOUT": "About",
+    "TIMING": "Timing",
+    "CONTACT": "Contact",
+    "PROFILE": {
+      "GREETING": "Hello",
+      "LOGOUT": "Logout",
+      "CONFIRM_LOGOUT": "Are you sure you want to logout?",
+      "CANCEL": "Cancel",
+      "CONFIRM": "OK",
+      "NAME": "Name"
+    }
+  },
+  "HOME": {
+    "WELCOME_ADMIN": "Welcome Admin!",
+    "MANAGE_USERS": "Manage Users",
+    "TITLE": "Taste Hub Portugal",
+    "WELCOME_TITLE": "Welcome To Taste Hub",
+    "RESTAURANT_NAME": "Taste Hub Portugal",
+    "RESTAURANT_DESCRIPTION": "Taste Hub is a modern and welcoming restaurant that blends international flavours with a distinct Portuguese touch. From hearty traditional dishes to creative global cuisine, our menu is crafted with fresh, high-quality ingredients that cater to a variety of tastes. Whether you're stopping by for a casual lunch, a romantic dinner, or a special celebration, Taste Hub offers a warm atmosphere, friendly service, and a memorable dining experience. With locations across Portugal, we invite you to explore the fusion of cultures through our delicious and thoughtfully prepared meals.",
+    "RESERVATION": "Make a Reservation",
+    "BEST_DISHES_TITLE": "-------------------- 🌟 Best Dishes Taste Hub 🌟 --------------------",
+    "THANKS": "Thanks For Visiting",
+    "DESIGN_BY": "Design By: Danish Rasheed | Email: danirasheed60@gmail.com"
+  },
+  "MENU": {
+    "TITLE": "Our Special Menu",
+    "PRICE": "Price",
+    "RECIPE": "Recipe",
+    "ORIGIN": "Origin",
+    "WEIGHT": "Weight",
+    "CALORIES": "Calories",
+    "PROTEIN": "Protein",
+    "COLD_DRINKS": "Cold Drinks",
+    "DESSERTS": "Desserts",
+    "DESCRIPTION": "Description",
+    "RESERVATION": "Make a Reservation",
+    "THANK_YOU": "Thank you for visiting!"
+  },
+  "DRINKS": {
+    "Iced Tea": "Iced Tea",
+    "Lemonade": "Lemonade",
+    "Cola": "Cola",
+    "Orange Juice": "Orange Juice",
+    "Mineral Water": "Mineral Water",
+    "Sparkling Water": "Sparkling Water",
+    "Mango Smoothie": "Mango Smoothie",
+    "Strawberry Milkshake": "Strawberry Milkshake",
+    "Coconut Water": "Coconut Water",
+    "Choco Shake": "Choco Shake"
+  },
+  "DESSERTS": {
+    "Chocolate Cake": "Chocolate Cake",
+    "Tiramisu": "Tiramisu",
+    "Ice Cream (3 scoops)": "Ice Cream (3 scoops)",
+    "Fruit Salad": "Fruit Salad",
+    "Pudding": "Pudding"
+  },
+  "ABOUT": "About Us",
+  "ABOUT_SECTION": {
+    "PARAGRAPH_1": "Welcome to <span class=\"highlight\">Taste-Hub</span>, your go-to place for delicious, freshly prepared meals and refreshing cold drinks. Our mission is to bring together <span class=\"highlight\">flavor, quality, and community</span> in every bite. Whether you're looking for a quick lunch, a cozy dinner, or something sweet to finish your meal, we’ve got you covered.",
+    "PARAGRAPH_2": "Founded in 2025, Taste-Hub started as a small food spot with a big dream — to create a space where food lovers feel at home. We use only the freshest ingredients, prepare everything with love, and always aim to exceed your expectations.",
+    "PARAGRAPH_3": "Our team is passionate about delivering the best dining experience, whether you're eating in, taking out, or ordering online. We believe that <span class=\"highlight\">good food brings people together</span> — and that’s what Taste-Hub is all about."
+  },
+  "RESERVATION": "Make a Reservation",
+  "THANKS_FOR_VISITING": "Thanks For Visiting",
+  "SCHEDULE": {
+    "WEEKLY_SCHEDULE": "Weekly Schedule",
+    "DAY": "Day",
+    "LUNCH_HOURS": "Lunch Hours",
+    "DINNER_HOURS": "Dinner Hours",
+    "MONDAY": "Monday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday",
+    "THURSDAY": "Thursday",
+    "FRIDAY": "Friday",
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday",
+    "CLOSED": "Closed",
+    "THANKS_FOR_VISITING": "Thanks For visiting"
+  },
+  "CONTACT": {
+    "TITLE": "Contact Us"
+  },
+  "RESERVATION_FORM": {
+    "TITLE": "Reserve Your Table",
+    "NAME_LABEL": "Name",
+    "NAME_PLACEHOLDER": "ex: Danish Rasheed",
+    "PEOPLE_LABEL": "Number of People",
+    "PEOPLE_PLACEHOLDER": "ex: How many people (e.g., 2,4)",
+    "MEAL_LABEL": "Meal Time",
+    "MEAL_PLACE_HOLDER": "Select meal (Lunch or Dinner)",
+    "MEAL_OPTION_LUNCH": "Lunch",
+    "MEAL_OPTION_DINNER": "Dinner",
+    "TIME_LABEL": "Time",
+    "TIME_PLACEHOLDER": "19:30",
+    "DATE_LABEL": "Date",
+    "DATE_PLACEHOLDER": "2025-07-19",
+    "DESCRIPTION_LABEL": "Description",
+    "DESCRIPTION_PLACEHOLDER": "Any special requests? (e.g., Book for birthday)",
+    "SUBMIT_BUTTON": "Reserve Now"
+  },
+  "VALIDATION": {
+    "ERROR_MESSAGE": "⚠️ Please fill all fields!"
+  },
+  "MESSAGES": {
+    "THANKS_FOR_VISITING": "Thanks for visiting."
+  }
+}

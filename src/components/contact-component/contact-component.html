@@ -1,0 +1,183 @@
+<!-- <-- Spacer: Adds vertical spacing (removed excess <br> for cleaner layout) -->
+<br><br>
+
+<!-- <-- Contact Section: Shows phone, email, address and social media links -->
+<div class="contact-section">
+  <h2 style="color: blue;">{{ 'CONTACT.TITLE' | translate }}</h2>
+  <div>
+
+    <!-- <-- Phone Contact: Opens WhatsApp link -->
+    <div class="contact-item">
+      <i class="pi pi-phone"></i>
+      <a href="https://wa.me/351920420832" target="_blank"
+        style="text-decoration: none; color: inherit; cursor: pointer;">
+        <span>+351 920 420 832</span>
+      </a>
+    </div>
+
+    <!-- <-- Email Contact: Opens default mail client -->
+    <div class="contact-item">
+      <i class="pi pi-envelope"></i>
+      <a href="mailto:danirasheed60@gmail.com" style="text-decoration: none; color: inherit; cursor: pointer;">
+        <span>danirasheed60&#64;gmail.com</span>
+      </a>
+    </div>
+
+    <!-- <-- Physical Address: Opens location in Google Maps --> 
+    <div class="contact-item">
+      <i class="pi pi-map-marker"></i>
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua+das+Delícias,+123,+Lisboa,+Portugal" target="_blank"
+        style="text-decoration: none; color: inherit; cursor: pointer;">
+        <span>Rua das Delícias, 123, Lisboa, Portugal</span>
+      </a>
+    </div>
+
+    <!-- <-- Social Media Icons: Facebook, Instagram, Twitter links --> 
+    <div class="social-icons">
+      <a href="https://facebook.com" class="facebook" target="_blank">
+        <i class="pi pi-facebook"></i>
+      </a>
+      <a href="https://instagram.com" class="instagram" target="_blank">
+        <i class="pi pi-instagram"></i>
+      </a>
+      <a href="https://twitter.com" class="twitter" target="_blank">
+        <i class="pi pi-twitter"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<br><br><!-- Reservation Form Container -->
+<div class="reservation-form-container">
+  <img src="assets/site-images/favicon.jpg" alt="Logo" class="form-logo" />
+
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)" novalidate>
+    <h2 class="form-title">{{ 'RESERVATION_FORM.TITLE' | translate }}</h2>
+
+    <!-- Name -->
+    <label for="name">{{ 'RESERVATION_FORM.NAME_LABEL' | translate }}</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="formData.name"
+      required
+      placeholder="ex: Danish Rasheed"
+      class="input-field"
+    />
+
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="formData.email"
+      required
+      placeholder="ex: danirasheed60@gmail.com / danirasheed60@lisboa.pt"
+      class="input-field"
+    />
+
+    <!-- Number of People -->
+    <label for="people">{{ 'RESERVATION_FORM.PEOPLE_LABEL' | translate }}</label>
+    <select
+      id="people"
+      name="people"
+      [(ngModel)]="formData.people"
+      required
+      class="input-field"
+    >
+      <option value="" disabled selected>{{ 'RESERVATION_FORM.PEOPLE_PLACEHOLDER' | translate }}</option>
+      <option *ngFor="let num of peopleCount" [value]="num">{{ num }}</option>
+    </select>
+
+    <!-- Meal Time -->
+    <label for="meal">{{ 'RESERVATION_FORM.MEAL_LABEL' | translate }}</label>
+    <select
+      id="meal"
+      name="meal"
+      [(ngModel)]="formData.meal"
+      required
+      class="input-field"
+    >
+       <option value="" disabled selected>{{ 'RESERVATION_FORM.MEAL_PLACE_HOLDER' | translate }}</option>
+      <option value="lunch">{{ 'RESERVATION_FORM.MEAL_OPTION_LUNCH' | translate }}</option>
+      <option value="dinner">{{ 'RESERVATION_FORM.MEAL_OPTION_DINNER' | translate }}</option>
+    </select>
+ <!-- Time Field -->
+    <label for="time">{{ 'RESERVATION_FORM.TIME_LABEL' | translate }}</label>
+    <div class="input-wrapper">
+      <input type="time" id="time" name="time" required placeholder="19:30">
+      <span class="icon" onclick="document.getElementById('time').showPicker()">⏰</span>
+    </div>
+
+    <!-- Date Field -->
+    <label for="date">{{ 'RESERVATION_FORM.DATE_LABEL' | translate }}</label>
+      <div class="input-wrapper">
+      <input type="date" id="date" name="date" required placeholder="2025-07-19">
+      <span class="icon" onclick="document.getElementById('date').showPicker()">📅</span>
+    </div>
+    <style>
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.input-wrapper .icon {
+  position: absolute;
+  right: 12px;
+  top: 37%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Optional: hide browser default picker icon */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
+}
+</style>
+
+    <!-- Description -->
+    <label for="message">{{ 'RESERVATION_FORM.DESCRIPTION_LABEL' | translate }}</label>
+    <textarea
+      id="message"
+      name="message"
+      [(ngModel)]="formData.message"      
+              [placeholder]="'RESERVATION_FORM.DESCRIPTION_PLACEHOLDER' | translate"
+
+    ></textarea>
+
+    <button type="submit" class="btn-submit">{{ 'RESERVATION_FORM.SUBMIT_BUTTON' | translate }}</button>
+  </form>
+</div>
+
+
+<!-- <-- Validation Error Message: Shows if form is incomplete -->
+<div *ngIf="showValidationError" class="flash-error">
+  {{ 'VALIDATION.ERROR_MESSAGE' | translate }}
+</div>
+
+<!-- <-- Success or failure message after submit --> 
+<div *ngIf="message" [ngClass]="messageType" class="flash-message">
+  {{ message }}
+</div>
+
+<br><br><br>
+
+<!-- <-- Footer thank you message --> 
+<h4 style="margin-left: 1090px; color: blue;">{{ 'MESSAGES.THANKS_FOR_VISITING' | translate }}</h4>
+
+<!-- <-- Scroll Buttons: Scroll up and scroll down functionality -->
+<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">⮝</button>
+<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">⮟</button>

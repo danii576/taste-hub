@@ -1,0 +1,21 @@
+<br><br>
+<div class="about-section">
+<h2 [innerHTML]="'ABOUT' | translate"></h2>
+<p [innerHTML]="'ABOUT_SECTION.PARAGRAPH_1' | translate"></p>
+<p [innerHTML]="'ABOUT_SECTION.PARAGRAPH_2' | translate"></p>
+<p [innerHTML]="'ABOUT_SECTION.PARAGRAPH_3' | translate"></p>
+
+      <!-- for your reservation -->
+<span class="reservation-icon" (click)="goToContact()">
+  <i style="color: blue;" class="pi pi-calendar"></i>
+  <span style="color: blue;">{{ 'RESERVATION' | translate }}</span>
+</span>
+</div>
+<br><br>
+<h4 style="margin-left: 1090px; color: blue;">{{ 'THANKS_FOR_VISITING' | translate }}</h4>
+<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">
+    ⮝
+</button>
+<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">
+      ⮟
+</button>

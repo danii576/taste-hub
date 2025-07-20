@@ -1,0 +1,94 @@
+/* Icon styles for all <i> elements used as icons */
+i {
+  font-size: 1.2rem;      /* Adjust icon size */
+  color: #3498db;         /* Match your theme blue */
+  vertical-align: middle; /* Align with text nicely */
+  margin-right: 0.5rem;   /* Space between icon and text */
+  transition: color 0.3s ease;
+}
+
+button i {
+  /* Optional: slightly bigger icons inside buttons */
+  font-size: 1.3rem;
+}
+
+/* Hover effect on icons inside buttons */
+button:hover i {
+  color: #1d6fa5;  /* Darker blue on hover */
+}
+
+/* Your existing styles */
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: blue;
+}
+
+table {
+  color: blue;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: red;
+}
+
+th {
+  background: #3498db;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.closed {
+  color: blue;
+  font-weight: bold;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: red;
+  z-index: 1000;
+}
+
+.scroll-to-top:hover {
+  color: blue;
+}
+
+.scroll-to-down {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: red;
+  z-index: 1000;
+}
+
+.scroll-to-down:hover {
+  color: blue;
+}

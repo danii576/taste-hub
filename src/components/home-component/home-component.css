@@ -1,0 +1,210 @@
+/* Reset and basic layout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: gray;
+}
+
+/* Fullscreen Image Slider Container */
+.fullscreen-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+.fullscreen-img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fullscreen-img.active {
+  display: block;
+}
+
+/* Overlay text on fullscreen slider */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+/* Navigation arrows for slider */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 2.5em;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  user-select: none;
+  z-index: 10;
+  transform: translateY(-50%);
+}
+
+.nav-arrow.left {
+  left: 20px;
+}
+
+.nav-arrow.right {
+  right: 20px;
+}
+
+/* Section container */
+.section {
+  padding: 2rem;
+}
+
+/* Content container for image + text side by side */
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Image in intro section */
+.intro-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Text content styling */
+.text-content {
+  width: 50%;
+  font-size: 1rem;
+}
+
+/* Headings inside text content */
+.text-content h3 {
+  color: blue;
+  margin-bottom: 1rem;
+}
+
+/* Reservation icon styling */
+.reservation-icon {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: blue;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.reservation-icon i {
+  font-size: 1.5rem;
+}
+
+/* Video styling */
+.restaurant-video {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Scroll buttons */
+.scroll-to-top,
+.scroll-to-down {
+  position: fixed;
+  bottom: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: red;
+  z-index: 1000;
+  transition: color 0.3s ease;
+}
+
+.scroll-to-top {
+  left: 20px;
+}
+
+.scroll-to-down {
+  right: 20px;
+}
+
+.scroll-to-top:hover,
+.scroll-to-down:hover {
+  color: blue;
+}
+
+/* Flexible row for second text + image section */
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Additional padding for the flex row section */
+.padded-section {
+  padding: 40px 0;
+}
+
+/* Side image in second section */
+.side-image {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Best dishes section title */
+.best-dishes-title {
+  color: blue;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Gallery images */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 420px;
+  height: 205px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Footer thanks message */
+.footer-thanks {
+  color: blue;
+  text-align: right;
+  margin-right: 2rem;
+}
+
+/* Footer design and contact info */
+.footer-design h3 {
+  color: blue;
+  text-align: center;
+  height: 30px;
+  margin: 0;
+}

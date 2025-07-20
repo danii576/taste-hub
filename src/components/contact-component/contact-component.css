@@ -1,0 +1,265 @@
+/* <-- GLOBAL STYLES: Basic body font and background --> */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* <-- CONTACT SECTION: Container and elements styling --> */
+.contact-section {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #444;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-item i {
+  font-size: 20px;
+  width: 30px;
+  margin-right: 10px;
+  color: #ff5722;
+}
+
+/* <-- RESERVATION FORM: Container, inputs, selects, textarea, button styling --> */
+.reservation-form-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.reservation-form-container img {
+  display: block;
+  margin: 0 auto 15px;
+  width: 80px; /* made logo bigger */
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.reservation-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem; /* bigger title */
+}
+
+.flex-row {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Wrapper for inputs with icons */
+.input-icon-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+/* Base input styles */
+.reservation-form-container input,
+.reservation-form-container select,
+.reservation-form-container textarea {
+  cursor: text;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 14px 14px;
+  font-size: 1.2rem; /* bigger text */
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  color: gray;
+  transition: border-color 0.3s ease;
+}
+
+.reservation-form-container input:hover,
+.reservation-form-container select:hover,
+.reservation-form-container textarea:hover {
+  border-color: #007bff;
+}
+
+/* Special padding right for inputs with icons */
+.input-with-icon {
+  padding-right: 48px;
+}
+
+/* Icon styles for date/time */
+.icon-calendar,
+.icon-clock {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  font-size: 3rem; /* bigger icon */
+  color: #1a73e8;
+  pointer-events: none; /* icon doesn't block clicks */
+  height: 45px;
+}
+
+/* Specific flex items in flex-row */
+.flex-row select,
+.flex-row input[type='time'],
+.flex-row input[type='date'] {
+  padding: 14px 14px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: text;
+}
+
+/* Textarea specifics */
+form textarea {
+  resize: vertical;
+  min-height: 100px; /* bigger height */
+  padding: 14px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Submit button */
+.reservation-form-container button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 700;
+}
+
+.reservation-form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* <-- SOCIAL ICONS: Styling the social media buttons --> */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s ease;
+}
+
+.social-icons a.facebook { background: #3b5998; }
+.social-icons a.instagram { background: #e1306c; }
+.social-icons a.twitter { background: #1da1f2; }
+
+.social-icons a:hover {
+  opacity: 0.8;
+}
+
+/* <-- SCROLL BUTTONS: Positioning and hover effects for scroll up/down buttons --> */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: red;
+  z-index: 1000;
+}
+
+.scroll-to-top:hover {
+  color: blue;
+}
+
+.scroll-to-down {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: red;
+  z-index: 1000;
+}
+
+.scroll-to-down:hover {
+  color: blue;
+}
+
+/* <-- FLASH MESSAGES: Styling for success and error messages with fadeout animation --> */
+.flash-message,
+.flash-error {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  animation: fadeOut 2s forwards;
+}
+
+.flash-message.success {
+  color: #155724;
+  text-align: center;
+}
+
+.flash-message.error,
+.flash-error {
+  color: #721c24;
+  text-align: center;
+}
+
+
+
+/* <-- FADE OUT ANIMATION: Used by flash messages --> */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+/* <-- RESPONSIVE DESIGN: Adjust layout on small screens --> */
+@media (max-width: 480px) {
+  .flex-row {
+    flex-direction: column;
+  }
+
+  .flex-row select,
+  .flex-row input[type='time'],
+  .flex-row input[type='date'] {
+    flex: unset;
+    width: 100%;
+  }
+}

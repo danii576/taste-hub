@@ -1,0 +1,128 @@
+<div class="login-background">
+  <img class="fullscreen-img" src="assets/site-images/restimg/loginimg.png" alt="Restaurant" />
+
+  <div class="login-container">
+
+    <!-- Login Form -->
+    <form *ngIf="activeForm === 'login'" #loginForm="ngForm" (ngSubmit)="loginFormHandler()">
+      <h2>Login</h2>
+
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="loginobj.email"
+          placeholder="Email"
+          required
+          #email="ngModel"
+        />
+        <div class="error" *ngIf="email.invalid && email.touched">
+        </div>
+      </div>
+
+      <div class="form-group password-wrapper">
+        <input
+          [type]="showPasswordLogin ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="loginobj.password"
+          placeholder="Password"
+          required
+          #password="ngModel"
+        />
+        <button
+          type="button"
+          class="toggle-password-btn"
+          (click)="togglePasswordVisibility('login')"
+          tabindex="-1"
+          aria-label="Toggle password visibility"
+        >
+          <span *ngIf="!showPasswordLogin">👁️</span>
+          <span *ngIf="showPasswordLogin">🙈</span>
+        </button>
+        <div class="error" *ngIf="password.invalid && password.touched"></div>
+      </div>
+
+      <button class="btn-submit" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <p (click)="toggleForm('register')">
+        Don't have an account? <span class="highlighted">Register</span>
+      </p>
+    </form>
+
+    <!-- Register Form -->
+    <form *ngIf="activeForm === 'register'" #registerForm="ngForm" (ngSubmit)="registerFormHandler()">
+      <h2>Register</h2>
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="registerobg.name"
+          placeholder="Name"
+          required
+          #name="ngModel"
+        />
+        <div class="error" *ngIf="name.invalid && name.touched"></div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="registerobg.email"
+          placeholder="Email"
+          required
+          #emailReg="ngModel"
+        />
+        <div style="color: blue;" class="error" *ngIf="emailReg.invalid && emailReg.touched">
+        </div>
+      </div>
+
+      <div class="form-group password-wrapper">
+        <input
+          [type]="showPasswordRegister ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="registerobg.password"
+          placeholder="Password"
+          required
+          #passwordReg="ngModel"
+        />
+        <button
+          type="button"
+          class="toggle-password-btn"
+          (click)="togglePasswordVisibility('register')"
+          tabindex="-1"
+          aria-label="Toggle password visibility"
+        >
+          <span *ngIf="!showPasswordRegister">👁️</span>
+          <span *ngIf="showPasswordRegister">🙈</span>
+        </button>
+        <div style="color: blue;" class="error" *ngIf="passwordReg.invalid && passwordReg.touched">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Select Role:</label>
+        <select
+          name="role"
+          [(ngModel)]="registerobg.role"
+          required
+          #role="ngModel"
+        >
+          <option value="" disabled selected>Select role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <div class="error" *ngIf="role.invalid && role.touched">
+          Role selection is required.
+        </div>
+      </div>
+
+      <button class="btn-submit" type="submit" [disabled]="registerForm.invalid">Register</button>
+
+      <p (click)="toggleForm('login')">
+        Already have an account? <span class="highlighted">Login</span>
+      </p>
+    </form>
+  </div>
+</div>

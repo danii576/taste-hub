@@ -1,0 +1,57 @@
+<br><br><br><br>
+<h2>{{ 'SCHEDULE.WEEKLY_SCHEDULE' | translate }}</h2>
+<br>
+<table>
+  <thead>
+    <tr>
+     <th>{{ 'SCHEDULE.DAY' | translate }}</th>
+      <th>{{ 'SCHEDULE.LUNCH_HOURS' | translate }}</th>
+      <th>{{ 'SCHEDULE.DINNER_HOURS' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ 'SCHEDULE.MONDAY' | translate }}</td>
+      <td>12:00 – 15:00</td>
+      <td>19:00 – 23:00</td>
+    </tr>
+    <tr>
+      <td>{{ 'SCHEDULE.TUESDAY' | translate }}</td>
+      <td>12:00 – 15:00</td>
+      <td>19:00 – 23:00</td>
+    </tr>
+    <tr>
+      <td>{{ 'SCHEDULE.WEDNESDAY' | translate }}</td>
+      <td>12:00 – 15:00</td>
+      <td>19:00 – 23:00</td>
+    </tr>
+    <tr>
+      <td>{{ 'SCHEDULE.THURSDAY' | translate }}</td>
+      <td>12:00 – 15:00</td>
+      <td>19:00 – 23:00</td>
+    </tr>
+    <tr>
+      <td>{{ 'SCHEDULE.FRIDAY' | translate }}</td>
+      <td>12:00 – 15:00</td>
+      <td>19:00 – 23:00</td>
+    </tr>
+    <tr>
+      <td>{{ 'SCHEDULE.SATURDAY' | translate }}</td>
+      <td>12:00 – 15:00</td>
+      <td>19:00 – 23:00</td>
+    </tr>
+    <tr>
+      <td>{{ 'SCHEDULE.SUNDAY' | translate }}</td>
+      <td colspan="2" class="closed">{{ 'SCHEDULE.CLOSED' | translate }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br><br>
+<h4 style="margin-left: 1090px; color: blue;">{{ 'SCHEDULE.THANKS_FOR_VISITING' | translate }}</h4>
+<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">
+  ⮝
+</button>
+<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">
+  ⮟
+</button>

@@ -1,0 +1,116 @@
+{
+  "TOPBAR": {
+    "MODE": "Modo",
+    "HOME": "Início",
+    "MENU": "Menu",
+    "ABOUT": "Sobre",
+    "TIMING": "Horário",
+    "CONTACT": "Contacto",
+    "PROFILE": {
+      "GREETING": "Olá",
+      "LOGOUT": "Terminar sessão",
+      "CONFIRM_LOGOUT": "Tem a certeza que quer sair?",
+      "CANCEL": "Cancelar",
+      "CONFIRM": "OK",
+      "NAME": "Nome"
+    }
+  },
+  "HOME": {
+    "WELCOME_ADMIN": "Bem-vindo, Administrador!",
+    "MANAGE_USERS": "Gerenciar Utilizadores",
+    "TITLE": "Taste Hub Portugal",
+    "WELCOME_TITLE": "Bem-vindo ao Taste Hub",
+    "RESTAURANT_NAME": "Taste Hub Portugal",
+    "RESTAURANT_DESCRIPTION": "O Taste Hub é um restaurante moderno e acolhedor que combina sabores internacionais com um toque português distinto. Desde pratos tradicionais generosos até uma cozinha global criativa, o nosso menu é elaborado com ingredientes frescos e de alta qualidade que agradam a vários gostos. Quer venha para um almoço casual, um jantar romântico ou uma celebração especial, o Taste Hub oferece um ambiente acolhedor, um serviço simpático e uma experiência gastronómica memorável. Com localizações em todo Portugal, convidamo-lo a explorar a fusão de culturas através das nossas refeições deliciosas e cuidadosamente preparadas.",
+    "RESERVATION": "Faça uma Reserva",
+    "BEST_DISHES_TITLE": "-------------------- 🌟 Melhores Pratos de Taste Hub 🌟 --------------------",
+    "THANKS": "Obrigado pela visita",
+    "DESIGN_BY": "Desenvolvido por: Danish Rasheed | Email: danirasheed60@gmail.com"
+  },
+  "MENU": {
+    "TITLE": "Nosso Menu Especial",
+    "PRICE": "Preço",
+    "RECIPE": "Receita",
+    "ORIGIN": "Origem",
+    "WEIGHT": "Peso",
+    "CALORIES": "Calorias",
+    "PROTEIN": "Proteína",
+    "COLD_DRINKS": "Bebidas Frias",
+    "DESSERTS": "Sobremesas",
+    "DESCRIPTION": "Descrição",
+    "RESERVATION": "Faça uma Reserva",
+    "THANK_YOU": "Obrigado pela visita!"
+  },
+  "DRINKS": {
+    "Iced Tea": "Chá Gelado",
+    "Lemonade": "Limonada",
+    "Cola": "Refrigerante",
+    "Orange Juice": "Suco de Laranja",
+    "Mineral Water": "Água Mineral",
+    "Sparkling Water": "Água com Gás",
+    "Mango Smoothie": "Smoothie de Manga",
+    "Strawberry Milkshake": "Milkshake de Morango",
+    "Coconut Water": "Água de Coco",
+    "Choco Shake": "Shake de Chocolate"
+  },
+  "DESSERTS": {
+    "Chocolate Cake": "Bolo de Chocolate",
+    "Tiramisu": "Tiramisu",
+    "Ice Cream (3 scoops)": "Sorvete (3 bolas)",
+    "Fruit Salad": "Salada de Frutas",
+    "Pudding": "Pudim"
+  },
+  "ABOUT": "Sobre Nós",
+  "ABOUT_SECTION": {
+    "PARAGRAPH_1": "Bem-vindo ao <span class=\"highlight\">Taste-Hub</span>, o seu lugar para refeições deliciosas, fresquinhas e bebidas frias refrescantes. A nossa missão é juntar <span class=\"highlight\">sabor, qualidade e comunidade</span> em cada garfada. Quer esteja à procura de um almoço rápido, um jantar aconchegante ou algo doce para terminar a refeição, temos tudo para si.",
+    "PARAGRAPH_2": "Fundado em 2025, o Taste-Hub começou como um pequeno espaço gastronómico com um grande sonho — criar um lugar onde os amantes da comida se sintam em casa. Usamos apenas os ingredientes mais frescos, preparamos tudo com amor e estamos sempre empenhados em superar as suas expectativas.",
+    "PARAGRAPH_3": "A nossa equipa é apaixonada por oferecer a melhor experiência gastronómica, seja para comer no local, levar para casa ou pedir online. Acreditamos que <span class=\"highlight\">boa comida une as pessoas</span> — e é isso que o Taste-Hub representa."
+  },
+  "RESERVATION": "Faça uma Reserva",
+  "THANKS_FOR_VISITING": "Obrigado pela visita",
+  "SCHEDULE": {
+    "WEEKLY_SCHEDULE": "Horário Semanal",
+    "DAY": "Dia",
+    "LUNCH_HOURS": "Horário do Almoço",
+    "DINNER_HOURS": "Horário do Jantar",
+    "MONDAY": "Segunda-feira",
+    "TUESDAY": "Terça-feira",
+    "WEDNESDAY": "Quarta-feira",
+    "THURSDAY": "Quinta-feira",
+    "FRIDAY": "Sexta-feira",
+    "SATURDAY": "Sábado",
+    "SUNDAY": "Domingo",
+    "CLOSED": "Fechado",
+    "THANKS_FOR_VISITING": "Obrigado pela visita"
+  },
+  "CONTACT": {
+    "TITLE": "Contacte-nos"
+  },
+  "RESERVATION_FORM": {
+    "TITLE": "Reserve Sua Mesa",
+    "NAME_LABEL": "Nome",
+    "NAME_PLACEHOLDER": "ex: Danish Rasheed",
+    "EMAIL_LABEL": "Email",
+    "EMAIL_PLACEHOLDER": "ex: danirasheed60@gmail.com / danirasheed60@lisboa.pt",
+    "PEOPLE_LABEL": "Número de Pessoas",
+    "PEOPLE_PLACEHOLDER": "ex: Quantas pessoas (ex: 2,4)",
+    "MEAL_LABEL": "Hora da Refeição",
+    "MEAL_PLACE_HOLDER": "Selecione a refeição (almoço ou jantar)",
+    "MEAL_OPTION_LUNCH": "Almoço",
+    "MEAL_OPTION_DINNER": "Jantar",
+    "TIME_LABEL": "Hora",
+    "TIME_PLACEHOLDER": "19:30",
+    "DATE_LABEL": "Data",
+    "DATE_PLACEHOLDER": "2025-07-19",
+    "DESCRIPTION_LABEL": "Descrição",
+    "DESCRIPTION_PLACEHOLDER": "Algum pedido especial? (ex: Reservar para aniversário)",
+    "SUBMIT_BUTTON": "Reserve Agora"
+  },
+  "VALIDATION": {
+    "ERROR_MESSAGE": "⚠️ Por favor, preencha todos os campos!"
+  },
+  "MESSAGES": {
+    "THANKS_FOR_VISITING": "Obrigado pela visita."
+  }
+
+}
