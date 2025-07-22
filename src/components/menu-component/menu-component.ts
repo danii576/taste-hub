@@ -2,6 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+
 interface Dish {
   name: string;
   price: string;
@@ -12,11 +14,23 @@ interface Dish {
   calories: number;
   protein: number | string;
 }
+
+interface Dessert {
+  name: string;
+  price: string;
+  image: string;
+  description: string;
+  weight: string | number;
+  calories: number;
+  protein: number | string;
+}
+
 @Component({
   selector: 'app-menu-component',
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, TranslateModule],
   templateUrl: './menu-component.html',
   styleUrls: ['./menu-component.css'],
+  standalone: true, // Add if you are using standalone components in Angular 14+
 })
 export class MenuComponent {
   dishes: Dish[] = [
@@ -301,9 +315,10 @@ export class MenuComponent {
       protein: '35g',
     },
   ];
-  selectedDish: Dish | null = null;
-  layoutPattern = [1, 2, 3, 4, 4, 4, 3, 2, 1];
+
   rows: Dish[][] = [];
+  layoutPattern = [1, 2, 3, 4, 4, 4, 3, 2, 1];
+  selectedDish: Dish | null = null;
 
   drinks = [
     { name: 'Iced Tea', price: '€2.00' },
@@ -369,7 +384,10 @@ export class MenuComponent {
       protein: '4g',
     },
   ];
-  selectedDessert: any = null;
+  selectedDessert: Dessert | null = null;
+
+  showScrollToTop = false;
+  showScrollToDown = true;
 
   constructor(private router: Router) {
     this.generateRows();
@@ -377,7 +395,7 @@ export class MenuComponent {
 
   generateRows() {
     let index = 0;
-    this.rows = []; // clear rows before generating
+    this.rows = [];
     for (const count of this.layoutPattern) {
       this.rows.push(this.dishes.slice(index, index + count));
       index += count;
@@ -392,7 +410,7 @@ export class MenuComponent {
     this.selectedDish = null;
   }
 
-  openDessertModal(dessert: any) {
+  openDessertModal(dessert: Dessert) {
     this.selectedDessert = dessert;
   }
 
@@ -400,25 +418,20 @@ export class MenuComponent {
     this.selectedDessert = null;
   }
 
-  showScrollToTop = false;
-  showScrollToDown = true;
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
     const scrollTop =
-      window.scrollY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
+      window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     this.showScrollToTop = scrollTop > 50;
+
     const nearBottom =
-    window.innerHeight + scrollTop >= document.body.scrollHeight - 50;
+      window.innerHeight + scrollTop >= document.documentElement.scrollHeight - 30;
     this.showScrollToDown = !nearBottom;
   }
 
   goToContact() {
-    this.router.navigate(['/contact']); // Adjust if your contact route differs
+    this.router.navigate(['/contact']);
   }
 
   scrollToTop() {
@@ -426,7 +439,6 @@ export class MenuComponent {
   }
 
   scrollToDown() {
-    const target = document.documentElement.scrollHeight; // Scroll to bottom
-    window.scrollTo({ top: target, behavior: 'smooth' });
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 }

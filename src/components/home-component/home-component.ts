@@ -1,11 +1,12 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateModule } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, TranslateModule],
   templateUrl: './home-component.html',
   styleUrls: ['./home-component.css'],
 })
@@ -15,14 +16,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   currentImageIndex = 0;
   totalImages = 4;
-  intervalId: any;
+  intervalId!: ReturnType<typeof setInterval>;
 
-  loggedUser = JSON.parse(localStorage.getItem('loggedUser') || '{}');
+  loggedUser: any = {};
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    const storedUser = localStorage.getItem('loggedUser');
+    this.loggedUser = storedUser ? JSON.parse(storedUser) : {};
+  }
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     const scrollTop =
       window.scrollY ||
       document.documentElement.scrollTop ||
@@ -30,48 +34,49 @@ export class HomeComponent implements OnInit, OnDestroy {
       0;
 
     this.showScrollToTop = scrollTop > 50;
-    const nearBottom =
-    window.innerHeight + scrollTop >= document.body.scrollHeight - 50;
-    this.showScrollToDown = !nearBottom;  }
 
-  isAdmin(): boolean {
-    return this.loggedUser.role === 'admin';
+    const nearBottom =
+      window.innerHeight + scrollTop >= document.documentElement.scrollHeight - 50;
+    this.showScrollToDown = !nearBottom;
   }
 
-  ngOnInit() {
+  isAdmin(): boolean {
+    return this.loggedUser?.role === 'admin';
+  }
+
+  ngOnInit(): void {
     this.intervalId = setInterval(() => {
       this.nextImage();
     }, 4000);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
 
-  nextImage() {
+  nextImage(): void {
     this.currentImageIndex = (this.currentImageIndex + 1) % this.totalImages;
   }
 
-  prevImage() {
+  prevImage(): void {
     this.currentImageIndex =
       (this.currentImageIndex - 1 + this.totalImages) % this.totalImages;
   }
 
-  goToContact() {
+  goToContact(): void {
     this.router.navigate(['/contact']);
   }
 
-  scrollToTop() {
+  scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  scrollToDown() {
+  scrollToDown(): void {
     const target = document.documentElement.scrollHeight;
     window.scrollTo({ top: target, behavior: 'smooth' });
   }
 
-  // Navigate to admin manage users page
-  manageUsers() {
-    this.router.navigate(['/admin/manage-users']); // adjust route as needed
+  manageUsers(): void {
+    this.router.navigate(['/admin/manage-users']);
   }
 }

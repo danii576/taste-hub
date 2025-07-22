@@ -3,10 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'; // Removed unuse
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-contact-component',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe], // Removed HttpClientModule here (should be in app module if needed)
+  imports: [CommonModule, FormsModule, TranslatePipe, TranslateModule], // Removed HttpClientModule here (should be in app module if needed)
   templateUrl: './contact-component.html',
   styleUrls: ['./contact-component.css'],
 })

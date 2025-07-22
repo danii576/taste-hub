@@ -2,19 +2,19 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateModule } from '@ngx-translate/core';
 
-
 @Component({
   selector: 'app-timing-component',
+  standalone: true,
   imports: [CommonModule, TranslatePipe, TranslateModule],
   templateUrl: './timing-component.html',
   styleUrl: './timing-component.css'
 })
 export class TimingComponent {
-showScrollToTop = false;
-  showScrollToDown = true; 
+  showScrollToTop = false;
+  showScrollToDown = true;
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     const scrollTop =
       window.scrollY ||
       document.documentElement.scrollTop ||
@@ -25,11 +25,12 @@ showScrollToTop = false;
     this.showScrollToDown = scrollTop > 50;
   }
 
-  scrollToTop() {
+  scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  scrollToDown() {
-    const target = document.documentElement.scrollHeight; // Scroll to bottom
+  scrollToDown(): void {
+    const target = document.documentElement.scrollHeight;
     window.scrollTo({ top: target, behavior: 'smooth' });
-  }}
+  }
+}
