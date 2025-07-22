@@ -1,33 +1,48 @@
+/* Dark mode body */
 body.dark-mode {
   background-color: #121212;
   color: white;
 }
 
+/* Snackbars */
 .snackbar-success {
-  background-color: white; /* Green */
+  background-color: white; /* White bg with blue text for success */
   color: blue;
   font-weight: bold;
   font-size: 16px;
   border-radius: 10px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  max-width: 320px;
+  word-wrap: break-word;
 }
 
 .snackbar-error {
-  background-color: white; /* Red */
+  background-color: white; /* White bg with red text for errors */
   color: red;
   font-weight: bold;
   font-size: 16px;
   border-radius: 10px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  max-width: 320px;
+  word-wrap: break-word;
 }
 
 .snackbar-white {
   background-color: #fff !important;
   color: #333 !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 12px 20px;
+  max-width: 320px;
+  word-wrap: break-word;
 }
 
 .snackbar-white .mat-simple-snackbar-action {
   color: #007bff !important;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* Password toggle styles */
@@ -35,11 +50,37 @@ body.dark-mode {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 400px; /* limit max width */
+  margin: 0 auto;
 }
 
 .password-wrapper input {
   flex: 1;
-  padding-right: 2.5rem; /* space for eye button */
+  padding-right: 2.5rem; /* space for eye toggle */
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  padding: 10px 12px;
+  transition: border-color 0.3s;
+  color: #333;
+  background-color: #fff;
+}
+
+.password-wrapper input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Adjust colors for dark mode inputs */
+body.dark-mode .password-wrapper input {
+  background-color: #222;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode .password-wrapper input:focus {
+  border-color: #3399ff;
 }
 
 .toggle-password-btn {
@@ -52,8 +93,42 @@ body.dark-mode {
   user-select: none;
   outline: none;
   color: #555;
+  transition: color 0.3s;
 }
 
 .toggle-password-btn:hover {
   color: #000;
+}
+
+body.dark-mode .toggle-password-btn {
+  color: #bbb;
+}
+
+body.dark-mode .toggle-password-btn:hover {
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .snackbar-success,
+  .snackbar-error,
+  .snackbar-white {
+    font-size: 14px;
+    max-width: 280px;
+    padding: 10px 16px;
+  }
+
+  .password-wrapper {
+    max-width: 100%;
+  }
+
+  .password-wrapper input {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  .toggle-password-btn {
+    font-size: 1.3rem;
+    right: 0.3rem;
+  }
 }

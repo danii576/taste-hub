@@ -8,7 +8,7 @@ i {
 }
 
 button i {
-  /* Optional: slightly bigger icons inside buttons */
+  /* Slightly bigger icons inside buttons */
   font-size: 1.3rem;
 }
 
@@ -17,14 +17,17 @@ button:hover i {
   color: #1d6fa5;  /* Darker blue on hover */
 }
 
-/* Your existing styles */
-
+/* Headings */
 h2 {
   text-align: center;
   margin-bottom: 1rem;
   color: blue;
+  font-size: 2rem;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
+/* Table styling */
 table {
   color: blue;
   width: 100%;
@@ -34,13 +37,17 @@ table {
   box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
   border-radius: 8px;
   overflow: hidden;
+  table-layout: fixed; /* helps with responsiveness */
 }
 
+/* Table cells */
 th, td {
   padding: 12px 20px;
   text-align: center;
   border-bottom: 1px solid #eee;
   color: red;
+  word-wrap: break-word; /* prevents overflow on small screens */
+  font-size: 1rem;
 }
 
 th {
@@ -54,32 +61,17 @@ tr:last-child td {
   border-bottom: none;
 }
 
+/* Closed class styling */
 .closed {
   color: blue;
   font-weight: bold;
 }
 
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  left: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  outline: none;
-  color: red;
-  z-index: 1000;
-}
-
-.scroll-to-top:hover {
-  color: blue;
-}
-
+/* Scroll buttons */
+.scroll-to-top,
 .scroll-to-down {
   position: fixed;
   bottom: 30px;
-  right: 20px;
   font-size: 24px;
   cursor: pointer;
   background: none;
@@ -87,8 +79,55 @@ tr:last-child td {
   outline: none;
   color: red;
   z-index: 1000;
+  transition: color 0.3s ease;
 }
 
+.scroll-to-top {
+  left: 20px;
+}
+
+.scroll-to-down {
+  right: 20px;
+}
+
+.scroll-to-top:hover,
 .scroll-to-down:hover {
   color: blue;
+}
+
+/* Responsive Styles */
+
+/* Tablets and smaller desktops */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.7rem;
+  }
+  th, td {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  table {
+    max-width: 90%;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  table {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  /* Make table scroll horizontally on very small devices */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 10px;
+  }
 }

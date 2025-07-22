@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
+  font-size: clamp(14px, 1.2vw, 18px);
 }
 
 /* <-- CONTACT SECTION: Container and elements styling --> */
@@ -50,7 +51,7 @@ body {
 .reservation-form-container img {
   display: block;
   margin: 0 auto 15px;
-  width: 80px; /* made logo bigger */
+  width: 80px;
   height: 80px;
   object-fit: contain;
   border-radius: 50%;
@@ -59,7 +60,7 @@ body {
 .reservation-form-container h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 2rem; /* bigger title */
+  font-size: 2rem;
 }
 
 .flex-row {
@@ -69,21 +70,19 @@ body {
   margin-bottom: 15px;
 }
 
-/* Wrapper for inputs with icons */
 .input-icon-wrapper {
   position: relative;
   flex: 1;
 }
 
-/* Base input styles */
 .reservation-form-container input,
 .reservation-form-container select,
 .reservation-form-container textarea {
   cursor: text;
   border: 1px solid #ccc;
   border-radius: 6px;
-  padding: 14px 14px;
-  font-size: 1.2rem; /* bigger text */
+  padding: 14px;
+  font-size: 1.2rem;
   margin-bottom: 15px;
   width: 100%;
   box-sizing: border-box;
@@ -97,45 +96,40 @@ body {
   border-color: #007bff;
 }
 
-/* Special padding right for inputs with icons */
 .input-with-icon {
   padding-right: 48px;
 }
 
-/* Icon styles for date/time */
 .icon-calendar,
 .icon-clock {
   position: absolute;
   top: 50%;
   right: 14px;
   transform: translateY(-50%);
-  font-size: 3rem; /* bigger icon */
+  font-size: 3rem;
   color: #1a73e8;
-  pointer-events: none; /* icon doesn't block clicks */
+  pointer-events: none;
   height: 45px;
 }
 
-/* Specific flex items in flex-row */
 .flex-row select,
 .flex-row input[type='time'],
 .flex-row input[type='date'] {
-  padding: 14px 14px;
+  padding: 14px;
   font-size: 1.2rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   cursor: text;
 }
 
-/* Textarea specifics */
 form textarea {
   resize: vertical;
-  min-height: 100px; /* bigger height */
+  min-height: 100px;
   padding: 14px;
   font-size: 1.1rem;
   line-height: 1.4;
 }
 
-/* Submit button */
 .reservation-form-container button {
   width: 100%;
   padding: 14px;
@@ -153,7 +147,6 @@ form textarea {
   background-color: #0056b3;
 }
 
-/* <-- SOCIAL ICONS: Styling the social media buttons --> */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -182,7 +175,6 @@ form textarea {
   opacity: 0.8;
 }
 
-/* <-- SCROLL BUTTONS: Positioning and hover effects for scroll up/down buttons --> */
 .scroll-to-top {
   position: fixed;
   bottom: 30px;
@@ -217,7 +209,6 @@ form textarea {
   color: blue;
 }
 
-/* <-- FLASH MESSAGES: Styling for success and error messages with fadeout animation --> */
 .flash-message,
 .flash-error {
   margin-top: 12px;
@@ -238,9 +229,6 @@ form textarea {
   text-align: center;
 }
 
-
-
-/* <-- FADE OUT ANIMATION: Used by flash messages --> */
 @keyframes fadeOut {
   0% { opacity: 1; }
   80% { opacity: 1; }
@@ -250,16 +238,53 @@ form textarea {
   }
 }
 
-/* <-- RESPONSIVE DESIGN: Adjust layout on small screens --> */
+/* Responsive for small devices */
 @media (max-width: 480px) {
   .flex-row {
     flex-direction: column;
   }
-
   .flex-row select,
   .flex-row input[type='time'],
   .flex-row input[type='date'] {
     flex: unset;
     width: 100%;
+  }
+}
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .reservation-form-container,
+  .contact-section {
+    max-width: 90%;
+    padding: 20px;
+  }
+  .reservation-form-container h2 {
+    font-size: 1.8rem;
+  }
+  .flex-row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive for laptops */
+@media (max-width: 1024px) {
+  .reservation-form-container,
+  .contact-section {
+    max-width: 85%;
+    padding: 25px;
+  }
+  .reservation-form-container h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Responsive for large screens */
+@media (min-width: 1440px) {
+  .reservation-form-container,
+  .contact-section {
+    max-width: 800px;
+  }
+  .reservation-form-container h2 {
+    font-size: 2.4rem;
   }
 }

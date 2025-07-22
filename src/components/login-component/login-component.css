@@ -21,6 +21,7 @@
   position: relative;
   z-index: 1;
   max-width: 400px;
+  width: 90%;
   margin: auto;
   top: 50%;
   transform: translateY(-50%);
@@ -30,6 +31,8 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
 }
+
+/* Snackbar */
 .mat-snack-bar-container.snackbar-white {
   background-color: #ffffff !important;
   color: #333 !important;
@@ -66,6 +69,7 @@ h2 {
   text-align: center;
   margin-bottom: 25px;
   color: #333;
+  font-size: 2rem;
 }
 
 /* Form fields */
@@ -73,18 +77,20 @@ h2 {
   margin-bottom: 20px;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 14px;
   border-radius: 10px;
   border: 2px solid #ddd;
   font-size: 16px;
+  color: #333;
+  background-color: #fff;
   transition: border 0.3s;
-   color: #333; /* 👈 ensures text is visible */
-  background-color: #fff; /* 👈 clean white background */
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: #007bff;
 }
@@ -133,10 +139,60 @@ p {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive Adjustments */
+
+/* Tablets and small laptops */
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 90%;
+    padding: 30px;
+  }
+
+  .tabs button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .btn-submit {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Mobile phones */
 @media (max-width: 480px) {
   .login-container {
     margin: 20px;
     padding: 25px;
+    border-radius: 15px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .tabs button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  input,
+  select {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .btn-submit {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  p {
+    font-size: 12px;
   }
 }

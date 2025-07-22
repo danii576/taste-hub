@@ -20,7 +20,7 @@ body {
 }
 
 .about-section p {
-  color:gray;
+  color: gray;
   line-height: 1.6;
   font-size: 16px;
   text-align: justify;
@@ -64,11 +64,12 @@ body {
 .scroll-to-down:hover {
   color: blue;
 }
+
 .reservation-icon {
   cursor: pointer;
-  /* ... other styles ... */
 }
-  .context-menu-inline {
+
+.context-menu-inline {
   display: inline-flex;
   gap: 8px;
   margin-left: 10px;
@@ -78,4 +79,63 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Fix for THANKS_FOR_VISITING h4 */
+h4 {
+  color: blue;
+  text-align: center;
+  margin-left: 0;
+}
+
+/* ✅ Mobile Responsive Styling */
+@media (max-width: 768px) {
+  .about-section {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .about-section p {
+    font-size: 14px;
+  }
+
+  .scroll-to-top, .scroll-to-down {
+    font-size: 20px;
+    bottom: 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .reservation-icon span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .about-section p {
+    font-size: 13px;
+  }
+
+  .scroll-to-top, .scroll-to-down {
+    font-size: 18px;
+    bottom: 15px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
 }
