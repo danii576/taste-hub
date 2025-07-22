@@ -90,12 +90,14 @@ describe('MenuComponent', () => {
 
   it('should scroll to down', () => {
     spyOn(window, 'scrollTo').and.stub();
-    spyOnProperty(document.documentElement, 'scrollHeight').and.returnValue(3000);
+    spyOnProperty(document.documentElement, 'scrollHeight', 'get').and.returnValue(3000);
+    spyOnProperty(document.body, 'scrollHeight', 'get').and.returnValue(3000); // Optional safeguard
+
     component.scrollToDown();
 
     const args = (window.scrollTo as jasmine.Spy).calls.mostRecent().args;
     expect(args.length).toBe(1);
     expect(args[0].top).toBe(3000);
     expect(args[0].behavior).toBe('smooth');
-  });
+});
 });

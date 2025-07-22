@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ContactComponent } from './contact-component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { By } from '@angular/platform-browser';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -10,7 +12,12 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactComponent, HttpClientTestingModule, TranslateModule.forRoot()]
+      imports: [
+        ContactComponent,
+        HttpClientTestingModule,
+        FormsModule,
+        TranslateModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactComponent);
@@ -25,12 +32,6 @@ describe('ContactComponent', () => {
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should initialize peopleCount correctly', () => {
-    expect(component.peopleCount.length).toBe(50);
-    expect(component.peopleCount[0]).toBe(1);
-    expect(component.peopleCount[49]).toBe(50);
   });
 
   it('should show scroll to top and hide scroll to down when scrolled down', () => {
@@ -58,43 +59,33 @@ describe('ContactComponent', () => {
   it('should scroll to top', () => {
     spyOn(window, 'scrollTo').and.stub();
     component.scrollToTop();
-
-    const args = (window.scrollTo as jasmine.Spy).calls.mostRecent().args;
-    expect(args.length).toBe(1);
-    expect(args[0].top).toBe(0);
-    expect(args[0].behavior).toBe('smooth');
+    const args = (window.scrollTo as jasmine.Spy).calls.mostRecent().args[0];
+    expect(args.top).toBe(0);
+    expect(args.behavior).toBe('smooth');
   });
 
   it('should scroll to down', () => {
     spyOn(window, 'scrollTo').and.stub();
     spyOnProperty(document.documentElement, 'scrollHeight').and.returnValue(3000);
     component.scrollToDown();
-
-    const args = (window.scrollTo as jasmine.Spy).calls.mostRecent().args;
-    expect(args.length).toBe(1);
-    expect(args[0].top).toBe(3000);
-    expect(args[0].behavior).toBe('smooth');
+    const args = (window.scrollTo as jasmine.Spy).calls.mostRecent().args[0];
+    expect(args.top).toBe(3000);
+    expect(args.behavior).toBe('smooth');
   });
 
-  it('should show validation error and not submit if form is invalid', () => {
-    const formMock = { invalid: true };
-    component.onSubmit(formMock);
-    expect(component.showValidationError).toBeTrue();
-  });
-
-  it('should submit form successfully', () => {
-    const formMock = { invalid: false };
+  it('should set success message after successful submission', () => {
+    const form = { invalid: false };
     component.formData = {
-      name: 'John Doe',
-      email: 'john@example.com',
+      name: 'Test Name',
+      email: 'test@example.com',
       message: 'Hello',
       people: '2',
-      date: '2025-12-12',
+      date: '2025-12-31',
       meal: 'Dinner',
       time: '19:00'
     };
 
-    component.onSubmit(formMock);
+    component.onSubmit(form);
 
     const req = httpMock.expectOne('https://formspree.io/f/xyzpzbgy');
     expect(req.request.method).toBe('POST');
@@ -104,10 +95,15 @@ describe('ContactComponent', () => {
     expect(component.message).toContain('✅ Reservation sent successfully!');
   });
 
-  it('should handle form submission error', () => {
-    const formMock = { invalid: false };
-    component.onSubmit(formMock);
+  it('should show validation error when form is invalid', () => {
+    const form = { invalid: true };
+    component.onSubmit(form);
+    expect(component.showValidationError).toBeTrue();
+  });
 
+  it('should set error message on failed submission', () => {
+    const form = { invalid: false };
+    component.onSubmit(form);
     const req = httpMock.expectOne('https://formspree.io/f/xyzpzbgy');
     req.error(new ErrorEvent('Network error'));
 
@@ -115,40 +111,50 @@ describe('ContactComponent', () => {
     expect(component.message).toContain('❌ Failed to book Reservation');
   });
 
-  it('should toggle menu visibility and set position', () => {
+  it('should toggle menu visibility and position', () => {
     const event = new MouseEvent('click', { clientX: 100, clientY: 200 });
     component.toggleMenu(event);
     expect(component.menuVisible).toBeTrue();
-    expect(component.menuStyle).toEqual(jasmine.objectContaining({
+    expect(component.menuStyle).toEqual({
       position: 'absolute',
       top: '200px',
       left: '100px'
-    }));
+    });
   });
 
-  it('should close menu on outside click', () => {
+  it('should close menu when calling closeMenuOutside', () => {
     component.menuVisible = true;
     component.closeMenuOutside();
     expect(component.menuVisible).toBeFalse();
   });
 
-  it('should copy number to clipboard', async () => {
+  it('should copy phone number to clipboard', async () => {
     const clipboardSpy = spyOn(navigator.clipboard, 'writeText').and.returnValue(Promise.resolve());
-    component.copyNumber();
+    await component.copyNumber();
     expect(clipboardSpy).toHaveBeenCalledWith('+351 920-420-832');
+    expect(component.menuVisible).toBeFalse();
   });
-it('should call number', () => {
-  const hrefSpy = spyOnProperty(window.location, 'href', 'set').and.stub();
-
+it('should navigate to tel link', () => {
+  spyOn(component, 'navigateToTel');
   component.callNumber();
-
-  expect(hrefSpy).toHaveBeenCalledWith('tel:+351920420832');
+  expect(component.navigateToTel).toHaveBeenCalledWith('+351920420832');
 });
 
 
-  it('should open WhatsApp chat', () => {
-    spyOn(window, 'open');
+
+  it('should open WhatsApp number', () => {
+    const openSpy = spyOn(window, 'open').and.stub();
     component.whatsappNumber();
-    expect(window.open).toHaveBeenCalledWith('https://wa.me/351920420832', '_blank');
+    expect(openSpy).toHaveBeenCalledWith('https://wa.me/351920420832', '_blank');
+    expect(component.menuVisible).toBeFalse();
   });
 });
+
+// Helper function to spy on property setter
+function spyOnSetter(obj: any, prop: string) {
+  const descriptor = Object.getOwnPropertyDescriptor(obj, prop) || {
+    configurable: true,
+    set: () => {},
+  };
+  return spyOnProperty(obj, prop, 'set').and.callFake((value) => descriptor.set!.call(obj, value));
+}

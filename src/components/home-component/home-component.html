@@ -6,36 +6,20 @@
 
 <!-- Fullscreen Image Slider with navigation arrows and overlay text -->
 <div class="fullscreen-container">
-  <img
-    class="fullscreen-img"
-    src="assets/site-images/restimg/home3.png"
-    alt="Restaurant"
-    [class.active]="currentImageIndex === 0"
-  />
-  <img
-    class="fullscreen-img"
-    src="assets/site-images/restimg/restaurent1.jpg"
-    alt="Restaurant"
-    [class.active]="currentImageIndex === 1"
-  />
-  <img
-    class="fullscreen-img"
-    src="assets/site-images/restimg/home1.png"
-    alt="Restaurant"
-    [class.active]="currentImageIndex === 2"
-  />
-  <img
-    class="fullscreen-img"
-    src="assets/site-images/restimg/home2.png"
-    alt="Restaurant"
-    [class.active]="currentImageIndex === 3"
-  />
+  <img class="fullscreen-img" src="assets/site-images/restimg/home3.png" alt="Restaurant"
+    [class.active]="currentImageIndex === 0" />
+  <img class="fullscreen-img" src="assets/site-images/restimg/restaurent1.jpg" alt="Restaurant"
+    [class.active]="currentImageIndex === 1" />
+  <img class="fullscreen-img" src="assets/site-images/restimg/home1.png" alt="Restaurant"
+    [class.active]="currentImageIndex === 2" />
+  <img class="fullscreen-img" src="assets/site-images/restimg/home2.png" alt="Restaurant"
+    [class.active]="currentImageIndex === 3" />
 
   <!-- Navigation arrows -->
   <div class="nav-arrow left" (click)="prevImage()">&#10094;</div>
   <div class="nav-arrow right" (click)="nextImage()">&#10095;</div>
 
-<h1 class="overlay-text">{{ 'HOME.TITLE' | translate }}</h1>
+  <h1 class="overlay-text">{{ 'HOME.TITLE' | translate }}</h1>
 </div>
 
 <br /><br /><br />
@@ -48,13 +32,13 @@
   <div class="content-container">
     <img src="assets/site-images/restimg/restaurent2.jpg" alt="Restaurant" class="intro-image" />
     <div class="text-content">
-<h3>{{ 'HOME.RESTAURANT_NAME' | translate }}</h3>
-     <p>{{ 'HOME.RESTAURANT_DESCRIPTION' | translate }}</p>
+      <h3>{{ 'HOME.RESTAURANT_NAME' | translate }}</h3>
+      <p>{{ 'HOME.RESTAURANT_DESCRIPTION' | translate }}</p>
 
       <!-- Reservation icon triggers contact page -->
       <span class="reservation-icon" (click)="goToContact()">
         <i class="pi pi-calendar"></i>
-  <span>{{ 'HOME.RESERVATION' | translate }}</span>
+        <span>{{ 'HOME.RESERVATION' | translate }}</span>
       </span>
     </div>
   </div>
@@ -64,8 +48,10 @@
 
 <!-- Video section -->
 <div>
-  <video src="assets/site-images/restimg/restaurent-view.mp4" controls class="restaurant-video"></video>
+  <video src="assets/site-images/restimg/restaurent-view.mp4" controls autoplay muted loop class="restaurant-video">
+  </video>
 </div>
+
 
 <!-- Scroll buttons -->
 <button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">⮝</button>
@@ -75,13 +61,13 @@
 <div class="section">
   <div class="flex-row padded-section">
     <div class="text-content">
-    <h3>{{ 'HOME.RESTAURANT_NAME' | translate }}</h3>
-     <p>{{ 'HOME.RESTAURANT_DESCRIPTION' | translate }}</p>
+      <h3>{{ 'HOME.RESTAURANT_NAME' | translate }}</h3>
+      <p>{{ 'HOME.RESTAURANT_DESCRIPTION' | translate }}</p>
 
       <!-- Reservation icon triggers contact page -->
       <span class="reservation-icon" (click)="goToContact()">
         <i class="pi pi-calendar"></i>
-  <span>{{ 'HOME.RESERVATION' | translate }}</span>
+        <span>{{ 'HOME.RESERVATION' | translate }}</span>
       </span>
     </div>
 
@@ -89,7 +75,7 @@
   </div>
 
   <!-- Best dishes title -->
-<h3 class="best-dishes-title">{{ 'HOME.BEST_DISHES_TITLE' | translate }}
+  <h3 class="best-dishes-title">{{ 'HOME.BEST_DISHES_TITLE' | translate }}
   </h3><br><br>
 
   <!-- Gallery of best dishes images -->
@@ -108,11 +94,11 @@
   <br /><br /><br />
 
   <!-- Footer thanks -->
-<h4 class="footer-thanks">{{ 'HOME.THANKS' | translate }}</h4>
+  <h4 class="footer-thanks">{{ 'HOME.THANKS' | translate }}</h4>
   <br />
 
   <!-- Footer design and contact info -->
   <span class="footer-design">
-  <h4 style="text-align: center; color: blue;">{{ 'HOME.DESIGN_BY' | translate }}</h4>
+    <h4 style="text-align: center; color: blue;">{{ 'HOME.DESIGN_BY' | translate }}</h4>
   </span>
 </div>

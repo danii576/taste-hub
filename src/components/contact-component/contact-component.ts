@@ -141,10 +141,16 @@ export class ContactComponent {
   }
 
   // <-- Initiate a phone call -->
-  callNumber() {
-    window.location.href = 'tel:+351920420832';
-    this.menuVisible = false;
-  }
+// Refactored method
+callNumber(phone: string = '+351920420832') {
+  this.navigateToTel(phone);
+}
+
+navigateToTel(phone: string) {
+  window.location.href = `tel:${phone}`;
+}
+
+
 
   // <-- Open WhatsApp chat with number -->
   whatsappNumber() {
