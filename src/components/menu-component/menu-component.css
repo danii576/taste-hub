@@ -46,6 +46,22 @@ li {
   min-width: 80px;
   text-align: right;
 }
+.reservation-icon {
+  cursor: pointer;
+  margin-left: 600px;
+}
+
+.reservation-icon i,
+.reservation-icon span,
+h4.thank-you {
+  color: blue;
+  text-align: center;
+}
+
+h4.thank-you {
+  text-align: center;
+}
+
 
 /* Scroll buttons */
 .scroll-to-top,
