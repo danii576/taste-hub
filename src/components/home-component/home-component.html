@@ -50,16 +50,13 @@
 <div>
   <video src="assets/site-images/restimg/restaurent-view.mp4" controls autoplay muted loop class="restaurant-video">
   </video>
-</div>
+</div><br><br><br>
 
-
-<!-- Scroll buttons -->
-<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">⮝</button>
-<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">⮟</button>
 
 <!-- Text and image side by side section -->
 <div class="section">
-  <div class="flex-row padded-section">
+  <div class="content-container">
+    <img height="300px" src="assets/site-images/restimg/restaurent3.png" alt="Restaurant" class="intro-image" />
     <div class="text-content">
       <h3>{{ 'HOME.RESTAURANT_NAME' | translate }}</h3>
       <p>{{ 'HOME.RESTAURANT_DESCRIPTION' | translate }}</p>
@@ -70,9 +67,7 @@
         <span>{{ 'HOME.RESERVATION' | translate }}</span>
       </span>
     </div>
-
-    <img src="assets/site-images/restimg/restaurent3.png" alt="Restaurant" class="side-image" />
-  </div>
+  </div><br><br>
 
   <!-- Best dishes title -->
   <h3 class="best-dishes-title">{{ 'HOME.BEST_DISHES_TITLE' | translate }}
@@ -88,17 +83,19 @@
     <img src="assets/site-images/restimg/sixthimg.jfif" alt="Dish 6" />
     <img src="assets/site-images/restimg/seventhimg.jfif" alt="Dish 7" />
     <img src="assets/site-images/restimg/eighthimg.jfif" alt="Dish 8" />
-    <img src="assets/site-images/restimg/ninthimg.jfif" alt="Dish 9" />
   </div>
 
   <br /><br /><br />
 
   <!-- Footer thanks -->
-  <h4 class="footer-thanks">{{ 'HOME.THANKS' | translate }}</h4>
+  <h4 style="text-align: center;" class="footer-thanks">{{ 'HOME.THANKS' | translate }}</h4>
   <br />
 
   <!-- Footer design and contact info -->
   <span class="footer-design">
-    <h4 style="text-align: center; color: blue;">{{ 'HOME.DESIGN_BY' | translate }}</h4>
+    <h5 style="text-align: center; color: blue;">{{ 'HOME.DESIGN_BY' | translate }}</h5>
   </span>
 </div>
+<!-- Scroll buttons -->
+<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">⮝</button>
+<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">⮟</button>

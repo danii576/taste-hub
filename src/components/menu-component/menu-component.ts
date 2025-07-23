@@ -317,7 +317,7 @@ export class MenuComponent {
   ];
 
   rows: Dish[][] = [];
-  layoutPattern = [1, 2, 3, 4, 4, 4, 3, 2, 1];
+  layoutPattern = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
   selectedDish: Dish | null = null;
 
   drinks = [

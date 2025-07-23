@@ -23,7 +23,7 @@
       </a>
     </div>
 
-    <!-- <-- Physical Address: Opens location in Google Maps --> 
+    <!-- <-- Physical Address: Opens location in Google Maps -->
     <div class="contact-item">
       <i class="pi pi-map-marker"></i>
       <a href="https://www.google.com/maps/search/?api=1&query=Rua+das+Delícias,+123,+Lisboa,+Portugal" target="_blank"
@@ -32,7 +32,7 @@
       </a>
     </div>
 
-    <!-- <-- Social Media Icons: Facebook, Instagram, Twitter links --> 
+    <!-- <-- Social Media Icons: Facebook, Instagram, Twitter links -->
     <div class="social-icons">
       <a href="https://facebook.com" class="facebook" target="_blank">
         <i class="pi pi-facebook"></i>
@@ -42,6 +42,9 @@
       </a>
       <a href="https://twitter.com" class="twitter" target="_blank">
         <i class="pi pi-twitter"></i>
+      </a>
+      <a href="https://wa.me/351920420832" class="WhatsApp" target="_blank">
+<i class="pi pi-whatsapp" style="font-size: 30px; color: #25D366;"></i>
       </a>
     </div>
   </div>
@@ -56,55 +59,29 @@
 
     <!-- Name -->
     <label for="name">{{ 'RESERVATION_FORM.NAME_LABEL' | translate }}</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      [(ngModel)]="formData.name"
-      required
-      placeholder="ex: Danish Rasheed"
-      class="input-field"
-    />
+    <input type="text" id="name" name="name" [(ngModel)]="formData.name" required placeholder="ex: Danish Rasheed"
+      class="input-field" />
 
     <!-- Email -->
     <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      [(ngModel)]="formData.email"
-      required
-      placeholder="ex: danirasheed60@gmail.com / danirasheed60@lisboa.pt"
-      class="input-field"
-    />
+    <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
+      placeholder="ex: danirasheed60@gmail.com / danirasheed60@lisboa.pt" class="input-field" />
 
     <!-- Number of People -->
     <label for="people">{{ 'RESERVATION_FORM.PEOPLE_LABEL' | translate }}</label>
-    <select
-      id="people"
-      name="people"
-      [(ngModel)]="formData.people"
-      required
-      class="input-field"
-    >
+    <select id="people" name="people" [(ngModel)]="formData.people" required class="input-field">
       <option value="" disabled selected>{{ 'RESERVATION_FORM.PEOPLE_PLACEHOLDER' | translate }}</option>
       <option *ngFor="let num of peopleCount" [value]="num">{{ num }}</option>
     </select>
 
     <!-- Meal Time -->
     <label for="meal">{{ 'RESERVATION_FORM.MEAL_LABEL' | translate }}</label>
-    <select
-      id="meal"
-      name="meal"
-      [(ngModel)]="formData.meal"
-      required
-      class="input-field"
-    >
-       <option value="" disabled selected>{{ 'RESERVATION_FORM.MEAL_PLACE_HOLDER' | translate }}</option>
+    <select id="meal" name="meal" [(ngModel)]="formData.meal" required class="input-field">
+      <option value="" disabled selected>{{ 'RESERVATION_FORM.MEAL_PLACE_HOLDER' | translate }}</option>
       <option value="lunch">{{ 'RESERVATION_FORM.MEAL_OPTION_LUNCH' | translate }}</option>
       <option value="dinner">{{ 'RESERVATION_FORM.MEAL_OPTION_DINNER' | translate }}</option>
     </select>
- <!-- Time Field -->
+    <!-- Time Field -->
     <label for="time">{{ 'RESERVATION_FORM.TIME_LABEL' | translate }}</label>
     <div class="input-wrapper">
       <input type="time" id="time" name="time" required placeholder="19:30">
@@ -113,50 +90,45 @@
 
     <!-- Date Field -->
     <label for="date">{{ 'RESERVATION_FORM.DATE_LABEL' | translate }}</label>
-      <div class="input-wrapper">
+    <div class="input-wrapper">
       <input type="date" id="date" name="date" required placeholder="2025-07-19">
       <span class="icon" onclick="document.getElementById('date').showPicker()">📅</span>
     </div>
     <style>
-.input-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
+      .input-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
 
-.input-wrapper input {
-  width: 100%;
-  padding: 12px 40px 12px 12px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
+      .input-wrapper input {
+        width: 100%;
+        padding: 12px 40px 12px 12px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
 
-.input-wrapper .icon {
-  position: absolute;
-  right: 12px;
-  top: 37%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  cursor: pointer;
-}
+      .input-wrapper .icon {
+        position: absolute;
+        right: 12px;
+        top: 37%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        cursor: pointer;
+      }
 
-/* Optional: hide browser default picker icon */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
-  display: none;
-}
-</style>
+      /* Optional: hide browser default picker icon */
+      input[type="date"]::-webkit-calendar-picker-indicator,
+      input[type="time"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        display: none;
+      }
+    </style>
 
     <!-- Description -->
     <label for="message">{{ 'RESERVATION_FORM.DESCRIPTION_LABEL' | translate }}</label>
-    <textarea
-      id="message"
-      name="message"
-      [(ngModel)]="formData.message"      
-              [placeholder]="'RESERVATION_FORM.DESCRIPTION_PLACEHOLDER' | translate"
-
-    ></textarea>
+    <textarea id="message" name="message" [(ngModel)]="formData.message"
+      [placeholder]="'RESERVATION_FORM.DESCRIPTION_PLACEHOLDER' | translate"></textarea>
 
     <button type="submit" class="btn-submit">{{ 'RESERVATION_FORM.SUBMIT_BUTTON' | translate }}</button>
   </form>
@@ -168,15 +140,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   {{ 'VALIDATION.ERROR_MESSAGE' | translate }}
 </div>
 
-<!-- <-- Success or failure message after submit --> 
+<!-- <-- Success or failure message after submit -->
 <div *ngIf="message" [ngClass]="messageType" class="flash-message">
   {{ message }}
 </div>
 
-<br><br><br>
+<br>
 
-<!-- <-- Footer thank you message --> 
-<h4 style="margin-left: 1090px; color: blue;">{{ 'MESSAGES.THANKS_FOR_VISITING' | translate }}</h4>
+<!-- <-- Footer thank you message -->
+<h4 style="margin-left: 750px; color: blue;">{{ 'MESSAGES.THANKS_FOR_VISITING' | translate }}</h4>
 
 <!-- <-- Scroll Buttons: Scroll up and scroll down functionality -->
 <button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">⮝</button>

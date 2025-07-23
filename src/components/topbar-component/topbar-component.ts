@@ -49,7 +49,12 @@ export class TopbarComponent implements OnInit {
   toggleProfileDropdown() {
     this.showProfileDropdown = !this.showProfileDropdown;
   }
+  dropdownOpen = false;
 
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+  
   onLogOut() {
     localStorage.removeItem('loggedUser');
     this.router.navigateByUrl('/login');
@@ -94,11 +99,9 @@ export class TopbarComponent implements OnInit {
   contactClick() {
     this.router.navigate(['/contact']);
   }
-toggleLang(): void {
-  this.currentLang = this.currentLang === 'en' ? 'pt' : 'en';
-  this.translate.use(this.currentLang);
-  localStorage.setItem('lang', this.currentLang);
-}
-
-
+  toggleLang(): void {
+    this.currentLang = this.currentLang === 'en' ? 'pt' : 'en';
+    this.translate.use(this.currentLang);
+    localStorage.setItem('lang', this.currentLang);
+  }
 }

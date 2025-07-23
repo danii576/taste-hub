@@ -189,21 +189,21 @@ body {
 
 /* Gallery images */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Only 2 images per row */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
 }
 
 .gallery img {
-  flex: 1 1 300px;
-  max-width: 420px;
   width: 100%;
-  height: auto;
-  aspect-ratio: 2/1;
+  max-width: 400px; /* Adjust as needed */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   object-fit: cover;
-  border-radius: 8px;
 }
+
 
 /* Footer thanks message */
 .footer-thanks {

@@ -1,44 +1,96 @@
+<!-- index.component.html -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css" />
+
 <div class="topbar">
-  <div class="logo">
-    <button (click)="pageLogoClick()" class="logo-button">
-      <img style="width:45px;" src="assets/site-images/favicon.jpg" alt="Logo" />
+  <!-- Sidebar Toggle Button -->
+  <div class="dropdown">
+    <button class="dropdown-toggle" (click)="toggleDropdown()">
+      <i class="pi pi-bars"></i>
     </button>
   </div>
 
+  <!-- Sidebar Menu -->
+  <div class="sidebar" [class.open]="dropdownOpen">
+   <button (click)="MenuClick()">
+  <i class="pi pi-list"></i>
+  {{ 'TOPBAR.MENU' | translate }}
+</button>
+
+<button (click)="aboutClick()">
+  <i class="pi pi-info-circle"></i>
+  {{ 'TOPBAR.ABOUT' | translate }}
+</button>
+
+<button (click)="timingClick()">
+  <i class="pi pi-clock"></i>
+  {{ 'TOPBAR.TIMING' | translate }}
+</button>
+
+<button (click)="contactClick()">
+  <i class="pi pi-phone"></i>
+  {{ 'TOPBAR.CONTACT' | translate }}
+</button>
+
+    <div class="sidebar-contact">
+      <div class="contact-item">
+        <i style="color: blue;" class="pi pi-phone"></i>
+        <a style="color: blue;" href="https://wa.me/351920420832" target="_blank">+351 920 420 832</a>
+      </div>
+      <div class="contact-item">
+        <i style="color: blue;" class="pi pi-envelope"></i>
+        <a style="color: blue;" href="mailto:danirasheed60@gmail.com">danirasheed60&#64;gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <i style="color: blue;" class="pi pi-map-marker"></i>
+        <a style="color: blue;" href="https://www.google.com/maps/search/?api=1&query=Rua+das+Delícias,+123,+Lisboa,+Portugal"
+          target="_blank">
+          Rua das Delícias, 123, Lisboa, Portugal
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://facebook.com" class="facebook" target="_blank">
+          <i class="pi pi-facebook"></i>
+        </a><br>
+        <a href="https://instagram.com" class="instagram" target="_blank">
+          <i class="pi pi-instagram"></i>
+        </a><br>
+        <a href="https://twitter.com" class="twitter" target="_blank">
+          <i class="pi pi-twitter"></i>
+        </a><br>
+        <a href="https://wa.me/351920420832" target="_blank">
+          <i class="pi pi-whatsapp"></i>
+        </a><br>
+        
+
+      </div>
+    </div>
+      
+  </div>
+
+  <!-- Optional overlay for backdrop -->
+  <div class="overlay" *ngIf="dropdownOpen" (click)="toggleDropdown()"></div>
+
+  <!-- Logo Center -->
+  <div class="logo">
+    <button (click)="pageLogoClick()" class="logo-button">
+      <img src="assets/site-images/favicon.jpg" alt="Logo" />
+    </button>
+  </div>
+
+  <!-- Top Right Menu -->
   <div class="menu">
     <button (click)="themeClick()">
-      <i [class]="isDarkMode ? 'pi pi-moon' : 'pi pi-sun'"></i> {{ 'TOPBAR.MODE' | translate }}
-
+      <i [class]="isDarkMode ? 'pi pi-moon' : 'pi pi-sun'"></i>
+      {{ 'TOPBAR.MODE' | translate }}
     </button>
 
     <button (click)="homeClick()" [ngClass]="{ active: currentRoute === '/home' }">
-      <i class="pi pi-home"></i> {{ 'TOPBAR.HOME' | translate }}
-
+      <i class="pi pi-home"></i>
+      {{ 'TOPBAR.HOME' | translate }}
     </button>
 
-    <button (click)="MenuClick()" [ngClass]="{ active: currentRoute === '/menu' }">
-      <i class="pi pi-bars"></i> {{ 'TOPBAR.MENU' | translate }}
-
-    </button>
-
-    <button (click)="aboutClick()" [ngClass]="{ active: currentRoute === '/about' }">
-      <i class="pi pi-info-circle"></i> {{ 'TOPBAR.ABOUT' | translate }}
-
-    </button>
-
-    <button (click)="timingClick()" [ngClass]="{ active: currentRoute === '/timing' }">
-      <i class="pi pi-clock"></i> {{ 'TOPBAR.TIMING' | translate }}
-
-    </button>
-
-    <button (click)="contactClick()" [ngClass]="{ active: currentRoute === '/contact' }">
-      <i class="pi pi-phone"></i> {{ 'TOPBAR.CONTACT' | translate }}
-
-    </button>
-    <!-- Show both buttons, highlight the active one -->
     <button (click)="toggleLang()" style="display: flex; align-items: center; gap: 6px;">
       <img [src]="currentLang === 'pt' ? 'assets/Flag/flag-PT.png' : 'assets/Flag/flag-EN.png'" alt="Language Flag"
         style="width: 22px; height: 18px;" />
@@ -47,30 +99,35 @@
 
     <li *ngIf="loggedUser" class="profile-container">
       <div class="profile-toggle" (click)="toggleProfileDropdown()">
-        <span class="glyphicon glyphicon-user"></span> {{ loggedUser.name }} ▼
+        <span class="glyphicon glyphicon-user"></span>
+        {{ loggedUser.name }} ▼
       </div>
+<!-- Profile dropdown -->
+<div *ngIf="showProfileDropdown && !showLogoutConfirm" class="profile-dropdown">
+  <p style="color: blue;" >
+    <i  class="pi pi-user icon"></i>
+    <strong >{{ loggedUser.name }}</strong>
+  </p>
+  <p style="color: blue;" >
+    <i class="pi pi-envelope icon"></i>
+    {{ loggedUser.email }}
+  <p style="color: blue;" >
+  <a href="#" (click)="showLogoutConfirm = true; $event.preventDefault()">
+    <i class="pi pi-sign-out icon"></i>
+    {{ 'TOPBAR.PROFILE.LOGOUT' | translate }}
+  </a>
+</div>
 
-      <!-- Show dropdown only if profile dropdown open and logout confirm NOT showing -->
-      <div style="color: blue;" *ngIf="showProfileDropdown && !showLogoutConfirm" class="profile-dropdown">
-        <p><span style="color: blue;" class="icon">👤</span> <strong>{{ loggedUser.name }}</strong></p>
-        <p><span style="color: blue;" class="icon">📧</span> {{ loggedUser.email }}</p>
 
-        <a href="#" style="color: blue; display: block; margin-top: 12px;"
-          (click)="showLogoutConfirm = true; $event.preventDefault()">
-          <span class="glyphicon glyphicon-log-in"></span> {{ 'TOPBAR.PROFILE.LOGOUT' | translate }}
-        </a>
-      </div>
-
-      <!-- Show only logout confirmation popup when confirm active -->
-      <div *ngIf="showProfileDropdown && showLogoutConfirm" class="confirm-popup"
-        style="position: absolute; top: 100%; right: 0; width: 220px; margin-top: 8px;">
-        <p style="color: blue;">{{ 'TOPBAR.PROFILE.CONFIRM_LOGOUT' | translate }}</p>
-        <div class="confirm-popup-buttons">
-          <button style="color: blue;" class="cancel-btn" (click)="cancelLogout()"> {{ 'TOPBAR.PROFILE.CANCEL' |
-            translate }}
+      <!-- Logout confirmation -->
+      <div *ngIf="showProfileDropdown && showLogoutConfirm" class="confirm-popup">
+        <p>{{ 'TOPBAR.PROFILE.CONFIRM_LOGOUT' | translate }}</p>
+        <div  class="confirm-popup-buttons">
+          <button class="cancel-btn" (click)="cancelLogout()">
+            {{ 'TOPBAR.PROFILE.CANCEL' | translate }}
           </button>
-          <button style="color: red;" class="ok-btn" (click)="confirmLogout()"> {{ 'TOPBAR.PROFILE.CONFIRM' | translate
-            }}
+          <button class="ok-btn" (click)="confirmLogout()">
+            {{ 'TOPBAR.PROFILE.CONFIRM' | translate }}
           </button>
         </div>
       </div>
