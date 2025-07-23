@@ -78,17 +78,18 @@
 
 
 <!-- for your reservation -->
-<span style="margin-left: 300px; cursor: pointer;" class="reservation-icon" (click)="goToContact()">
+<span style="margin-left: 600px; cursor: pointer;" class="reservation-icon" (click)="goToContact()">
   <i style="color: blue;" class="pi pi-calendar"></i>
   <span style="color: blue;">{{ 'MENU.RESERVATION' | translate }}</span>
-</span>
+</span><br>
 <span>
   <h4 style="color: blue; text-align: center;">{{ 'MENU.THANK_YOU' | translate }}</h4>
 </span>
 
 <button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">
-  ⮝
+  <i class="pi pi-angle-up"></i>
 </button>
+
 <button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">
-  ⮟
+  <i class="pi pi-angle-down"></i>
 </button>

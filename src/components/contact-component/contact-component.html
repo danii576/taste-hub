@@ -145,11 +145,14 @@
   {{ message }}
 </div>
 
-<br>
-
 <!-- <-- Footer thank you message -->
-<h4 style="margin-left: 750px; color: blue;">{{ 'MESSAGES.THANKS_FOR_VISITING' | translate }}</h4>
+<h4 style="text-align: center; color: blue;">{{ 'MESSAGES.THANKS_FOR_VISITING' | translate }}</h4>
 
 <!-- <-- Scroll Buttons: Scroll up and scroll down functionality -->
-<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">⮝</button>
-<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">⮟</button>
+<button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">
+  <i class="pi pi-angle-up"></i>
+</button>
+
+<button class="scroll-to-down" *ngIf="showScrollToDown" (click)="scrollToDown()">
+  <i class="pi pi-angle-down"></i>
+</button>
