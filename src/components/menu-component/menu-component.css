@@ -1,9 +1,10 @@
-.menu-container {
+.menu-container h3{
   max-width: 800px;
   width: 90%;
   margin: auto;
   padding: 20px;
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 h1, h2 {

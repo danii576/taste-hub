@@ -276,18 +276,37 @@ body.dark-mode .menu button.active {
 @media (max-width: 768px) {
   .topbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1rem;
     padding: 1rem;
-    gap: 10px;
+  }
+
+  .logo {
+    order: -1;
+    margin-bottom: 10px;
+    justify-content: center;
   }
 
   .menu {
-    width: 100%;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 0.8rem;
+    width: 100%;
   }
 
   .menu button {
     font-size: 1rem;
   }
+
+  .profile-container {
+    width: 100%;
+  }
+
+  .profile-dropdown,
+  .confirm-popup {
+    right: 0 !important;
+    left: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
+
