@@ -76,14 +76,13 @@
   </div>
 </div>
 
-
-<span class="reservation-icon" (click)="goToContact()">
+<div>
+  <span class="reservation-icon" (click)="goToContact()">
   <i class="pi pi-calendar"></i>
   <span>{{ 'MENU.RESERVATION' | translate }}</span>
-</span><br><br>
-<span>
-  <h4 class="thank-you">{{ 'MENU.THANK_YOU' | translate }}</h4>
 </span>
+  <h4 class="thank-you">{{ 'MENU.THANK_YOU' | translate }}</h4>
+</div>
 
 
 <button class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">
