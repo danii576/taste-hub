@@ -1,11 +1,14 @@
-import { NgModule, Component as AppComponent } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-// Components
+import { AppRoutingModule } from './app-routing.module';
+
+// Import your actual root AppComponent (make sure file is app.component.ts)
+import { AppComponent } from './app-component'
+
+// Other components (make sure none of these are standalone, else remove from declarations)
 import { HomeComponent } from '../components/home-component/home-component';
 import { AboutComponent } from '../components/about-component/about-component';
 import { ContactComponent } from '../components/contact-component/contact-component';
@@ -13,29 +16,28 @@ import { MenuComponent } from '../components/menu-component/menu-component';
 import { TimingComponent } from '../components/timing-component/timing-component';
 import { TopbarComponent } from '../components/topbar-component/topbar-component';
 
-// Translate
+// Translate modules
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// Translation loader function
+// Angular routing fix for GitHub Pages
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+// Translation loader factory
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
-    TimingComponent,
-    MenuComponent,
-    TopbarComponent
   ],
-  imports: [
+  imports: [ContactComponent,MenuComponent,TimingComponent,TopbarComponent,
+    AboutComponent,
+    HomeComponent,
+    AppComponent,
     BrowserModule,
     HttpClientModule,
     CommonModule,
-    NgForm,
     FormsModule,
     AppRoutingModule,
     TranslateModule.forRoot({
@@ -46,7 +48,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [],
-  bootstrap: [ AppComponent] // Or your main root component
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }  // fix routing on GH Pages
+  ],
+  bootstrap: []
 })
 export class AppModule {}

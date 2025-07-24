@@ -11,7 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   templateUrl: './app-component.html',
   styleUrls: ['./app-component.css'],
 })
-export class App {
+export class AppComponent {
   protected title = 'taste-hub';
   showTopbar = true;
 
